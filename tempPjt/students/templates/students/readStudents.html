@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .register{
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LIST</h1>
+    <div class="list">
+        <table>
+            <th>
+                <tr>
+                    <td>이름</td>
+                    <td>나이</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </th>
+            <tbody>
+                {% for s in student_list %}
+                <tr>
+                    <td> <a href="#">{{s.s_name}}</a> </td> 
+                    <td> {{s.s_name}}</a> </td>
+                    <td> <a href="#">수정</a> </td>
+                    <td><a href="#">삭제</a> </td>
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+<a href="{% url 'students:reg' %}">신규등록</a>
+</div>
+</body>
+</html>
