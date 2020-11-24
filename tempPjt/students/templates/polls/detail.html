@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls detail</title>
+</head>
+<body>
+    <h1>{{question.question_text}}</h1>
+
+    {% if error_message %}<p><strong>{{error_message}}</strong></p>{% endif %}
+    <form action="{% url 'students:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <!-- 1:N 외래키로 연결되어있는 항목들 xxx_set 속성을 디폴트로 제공
+        Question테이블의 question 레코드에 연결된 Choice 테이블의 레코드를 모두를 뜻함 -->
+        {% for choice in question.choice_set.all %}
+        <!-- forloop.counter변수는 for루프를 실행한 횟수 , label for 속성과 input id 속성은 값이 같아야 서로 바인딩  -->
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{choice.id}}">
+            <label for="choice{{ forloop.counter }}">{{choice.choice_text}}</label><br>
+        {% endfor %}
+        <input type="submit" value="Vote">
+    </form>
+    
+</body>
+</html>
