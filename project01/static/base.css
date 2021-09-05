@@ -1,0 +1,23 @@
+
+.project_footer {
+    text-align: center;
+    margin-top:2rem;
+}
+
+.footer_logo {
+    font-family: 'Merriweather', serif;
+}
+
+.footer_button {
+    font-size: .6em;
+}
+
+
+.project_header {
+   text-align:center;
+   margin: 2rem 0;
+}
+.header_title {
+    font-family: "Merriweather", serif;
+}
+
